@@ -11,7 +11,7 @@ final class ScaleneTriangle extends Triangle
         return TriangleType::scalene();
     }
 
-    protected function differentLengthsForType(): int
+    public static function differentLengthsForType(): int
     {
         return 3;
     }

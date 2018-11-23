@@ -46,5 +46,5 @@ abstract class Triangle
 
     abstract public function type(): TriangleType;
 
-    abstract protected function differentLengthsForType(): int;
+    abstract public static function differentLengthsForType(): int;
 }
