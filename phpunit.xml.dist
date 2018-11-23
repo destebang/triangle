@@ -23,8 +23,8 @@
         verbose="false">
 
     <testsuites>
-        <testsuite name="UnitTests">
-            <directory>./tests/Unit/</directory>
+        <testsuite name="All Tests">
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
