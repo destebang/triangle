@@ -6,33 +6,26 @@ namespace Tradeshift\Triangle\Domain\Model;
 
 abstract class Triangle
 {
-    private $firstSide;
-    private $secondSide;
-    private $thirdSide;
+    private $triangleSides;
 
-    public function __construct(
-        TriangleSide $firstSide,
-        TriangleSide $secondSide,
-        TriangleSide $thirdSide
-    ) {
-        $this->firstSide = $firstSide;
-        $this->secondSide = $secondSide;
-        $this->thirdSide = $thirdSide;
+    public function __construct(TriangleSides $triangleSides)
+    {
+        $this->triangleSides = $triangleSides;
     }
 
     public function firstSide(): TriangleSide
     {
-        return $this->firstSide;
+        return $this->triangleSides->firstSide();
     }
 
     public function secondSide(): TriangleSide
     {
-        return $this->secondSide;
+        return $this->triangleSides->secondSide();
     }
 
     public function thirdSide(): TriangleSide
     {
-        return $this->thirdSide;
+        return $this->triangleSides->thirdSide();
     }
 
     abstract public function type(): TriangleType;

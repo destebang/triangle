@@ -9,6 +9,7 @@ use Tradeshift\Triangle\Domain\Model\IsoscelesTriangle;
 use Tradeshift\Triangle\Domain\Model\ScaleneTriangle;
 use Tradeshift\Triangle\Domain\Model\Triangle;
 use Tradeshift\Triangle\Domain\Model\TriangleSide;
+use Tradeshift\Triangle\Domain\Model\TriangleSides;
 
 final class TriangleFactory
 {
@@ -18,34 +19,16 @@ final class TriangleFactory
         3 => ScaleneTriangle::class
     ];
 
-    public function create(TriangleSide $firstSide, TriangleSide $secondSide, TriangleSide $thirdSide): Triangle
+    public function create(TriangleSides $sides): Triangle
     {
-        $differentSidesLength = $this->differentLengthsSidesCalculator($firstSide, $secondSide, $thirdSide);
+        $differentSidesLength = $sides->differentLengths();
         $this->guardAgainstUnsupportedDifferentSidesLength($differentSidesLength);
         $triangle = self::DIFFERENT_LENGTHS_TO_TRIANGLE_MAPPER[$differentSidesLength];
 
-        return new $triangle($firstSide, $secondSide, $thirdSide);
+        return new $triangle($sides);
     }
 
-    /**
-     * @param TriangleSide[] $triangleSides
-     * @return int
-     */
-    private function differentLengthsSidesCalculator(TriangleSide ...$triangleSides): int
-    {
-        $triangleSideToLength = function (TriangleSide $triangleSide): float {
-            return $triangleSide->length();
-        };
-
-        $lengthsAsFloat = array_map(
-            $triangleSideToLength,
-            $triangleSides
-        );
-
-        return count(array_unique($lengthsAsFloat));
-    }
-
-    private function guardAgainstUnsupportedDifferentSidesLength(int $differentSidesLength)
+    private function guardAgainstUnsupportedDifferentSidesLength(int $differentSidesLength): void
     {
         if (!array_key_exists($differentSidesLength, self::DIFFERENT_LENGTHS_TO_TRIANGLE_MAPPER)) {
             throw new \RuntimeException("There has been a problem calculating the triangle type");

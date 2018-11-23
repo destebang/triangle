@@ -24,26 +24,23 @@ class TriangleSideTest extends TestCase
     /** @test **/
     public function is_created_with_expected_length(): void
     {
-        $length = 2.32;
-        $triangleSide = new TriangleSide($length);
-        $this->assertSame($length, $triangleSide->length());
+        $triangleSide = TriangleSideStub::create(2.32);
+        $this->assertSame(2.32, $triangleSide->length());
     }
 
     /** @test */
     public function is_equal_when_length_matches_with_other_triangle_side(): void
     {
-        $length = 2.32;
-        $triangleSide = new TriangleSide($length);
-        $anotherTriangleSide = new TriangleSide($length);
-        $this->assertTrue($triangleSide->equals($anotherTriangleSide));
+        $triangleSide = TriangleSideStub::create(2.32);
+        $equalsTriangleSide = TriangleSideStub::create(2.32);
+        $this->assertTrue($triangleSide->equals($equalsTriangleSide));
     }
 
     /** @test */
     public function is_not_equal_when_length_does_not_match_with_other_triangle_side(): void
     {
-        $length = 2.32;
-        $triangleSide = new TriangleSide($length);
-        $anotherTriangleSide = new TriangleSide(2.323);
-        $this->assertFalse($triangleSide->equals($anotherTriangleSide));
+        $triangleSide = TriangleSideStub::create(2.32);
+        $notEqualsTriangleSide = TriangleSideStub::random();
+        $this->assertFalse($triangleSide->equals($notEqualsTriangleSide));
     }
 }
