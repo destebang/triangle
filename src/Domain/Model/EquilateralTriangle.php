@@ -10,4 +10,10 @@ final class EquilateralTriangle extends Triangle
     {
         return TriangleType::equilateral();
     }
+
+    protected function differentLengthsForType(): int
+    {
+        return 1;
+    }
+
 }

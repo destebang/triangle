@@ -11,6 +11,22 @@ abstract class Triangle
     public function __construct(TriangleSides $triangleSides)
     {
         $this->triangleSides = $triangleSides;
+        $this->assertDifferentLengthsIsMatchingWithType();
+    }
+
+    private function assertDifferentLengthsIsMatchingWithType(): void
+    {
+        $differentLengths = $this->triangleSides->differentLengths();
+
+        if ($differentLengths !== $this->differentLengthsForType()) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "A <%s> triangle can not be created with <%d> different lengths",
+                    $this->type(),
+                    $differentLengths
+                )
+            );
+        }
     }
 
     public function firstSide(): TriangleSide
@@ -29,4 +45,6 @@ abstract class Triangle
     }
 
     abstract public function type(): TriangleType;
+
+    abstract protected function differentLengthsForType(): int;
 }

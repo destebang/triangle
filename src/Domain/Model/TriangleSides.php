@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tradeshift\Triangle\Domain\Model;
 
-class TriangleSides
+final class TriangleSides
 {
     private $firstSide;
     private $secondSide;
@@ -33,6 +33,15 @@ class TriangleSides
     public function thirdSide(): TriangleSide
     {
         return $this->thirdSide;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            $this->firstSide->length(),
+            $this->secondSide->length(),
+            $this->thirdSide->length(),
+        ];
     }
 
     public function differentLengths(): int

@@ -8,4 +8,10 @@ final class IsoscelesTriangle extends Triangle
     {
         return TriangleType::isosceles();
     }
+
+    protected function differentLengthsForType(): int
+    {
+        return 2;
+    }
+
 }
