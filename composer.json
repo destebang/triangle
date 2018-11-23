@@ -8,6 +8,18 @@
     "require-dev": {
         "phpunit/phpunit": "^7.4"
     },
+    "autoload": {
+        "psr-4": {
+            "Tradeshift\\Triangle\\": [
+                "src"
+            ]
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tradeshift\\Triangle\\Tests\\": "test"
+        }
+    },
     "authors": [
         {
             "name": "Daniel Esteban",
