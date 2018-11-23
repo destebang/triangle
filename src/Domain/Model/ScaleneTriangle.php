@@ -15,5 +15,4 @@ final class ScaleneTriangle extends Triangle
     {
         return 3;
     }
-
 }
