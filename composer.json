@@ -1,0 +1,17 @@
+{
+    "name": "destebang/triangle",
+    "description": "triangle calculator type",
+    "type": "project",
+    "require": {
+        "symfony/console": "^4.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.4"
+    },
+    "authors": [
+        {
+            "name": "Daniel Esteban",
+            "email": "danielestebangonzalez83@gmail.com"
+        }
+    ]
+}
