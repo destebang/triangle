@@ -37,4 +37,13 @@ class TriangleSideTest extends TestCase
         $anotherTriangleSide = new TriangleSide($length);
         $this->assertTrue($triangleSide->equals($anotherTriangleSide));
     }
+
+    /** @test */
+    public function is_not_equal_when_length_does_not_match_with_other_triangle_side(): void
+    {
+        $length = 2.32;
+        $triangleSide = new TriangleSide($length);
+        $anotherTriangleSide = new TriangleSide(2.323);
+        $this->assertFalse($triangleSide->equals($anotherTriangleSide));
+    }
 }
