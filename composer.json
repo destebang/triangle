@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tradeshift\\Triangle\\Tests\\": "test"
+            "Tradeshift\\Triangle\\Tests\\": "tests"
         }
     },
     "authors": [

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tradeshift\Triangle\Domain\Model;
 
-class TriangleSide
+final class TriangleSide
 {
     /**
      * @var float
