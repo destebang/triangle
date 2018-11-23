@@ -26,6 +26,11 @@ class TriangleSide
         }
     }
 
+    public function equals(TriangleSide $anotherTriangleSide): bool
+    {
+        return $this->length === $anotherTriangleSide->length();
+    }
+
     public function length(): float
     {
         return $this->length;
