@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Tradeshift\Triangle\Domain\Model;
 
-use phpDocumentor\Reflection\Types\Self_;
-
 final class TriangleType
 {
     public const EQUILATERAL = 'EQUILATERAL';
