@@ -7,6 +7,7 @@ namespace Tradeshift\Triangle\Domain\Service;
 use Tradeshift\Triangle\Domain\Model\EquilateralTriangle;
 use Tradeshift\Triangle\Domain\Model\IsoscelesTriangle;
 use Tradeshift\Triangle\Domain\Model\ScaleneTriangle;
+use Tradeshift\Triangle\Domain\Model\Triangle;
 use Tradeshift\Triangle\Domain\Model\TriangleSide;
 
 final class TriangleFactory
@@ -17,7 +18,7 @@ final class TriangleFactory
         3 => ScaleneTriangle::class
     ];
 
-    public function create(TriangleSide $firstSide, TriangleSide $secondSide, TriangleSide $thirdSide)
+    public function create(TriangleSide $firstSide, TriangleSide $secondSide, TriangleSide $thirdSide): Triangle
     {
         $differentSidesLength = $this->differentLengthsSidesCalculator($firstSide, $secondSide, $thirdSide);
         $this->guardAgainstUnsupportedDifferentSidesLength($differentSidesLength);
