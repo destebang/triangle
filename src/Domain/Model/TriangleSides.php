@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tradeshift\Triangle\Domain\Model;
 
-final class TriangleSides
+class TriangleSides
 {
     private $firstSide;
     private $secondSide;

@@ -43,4 +43,14 @@ class TriangleSidesTest extends TestCase
         $this->assertSame(3, $scalene->differentLengths());
     }
 
+    /** @test */
+    public function it_can_be_converted_to_array(): void
+    {
+        $sides = [1.14, 2.32, 3.33];
+        $triangle = TriangleSidesStub::createFromFloat(...$sides);
+        $this->assertEquals(
+            $sides,
+            $triangle->toArray()
+        );
+    }
 }

@@ -54,4 +54,13 @@ class TriangleFactoryTest extends TestCase
         $this->assertInstanceOf(ScaleneTriangle::class, $isoscelesTriangle);
         $this->assertEquals(TriangleType::scalene(), $isoscelesTriangle->type());
     }
+
+    /** @test */
+    public function it_fails_when_a_triangle_is_not_supported()
+    {
+        $unsupportedSides = TriangleSidesStub::createUnsupported();
+
+        $this->expectException(\RuntimeException::class);
+        $this->factory->create($unsupportedSides);
+    }
 }

@@ -20,4 +20,6 @@ class TriangleSideStub
     {
         return (float) (mt_rand() / mt_getrandmax());
     }
+
+
 }

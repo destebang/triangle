@@ -19,6 +19,18 @@ class TriangleSidesStub
         );
     }
 
+    public static function createUnsupported(): TriangleSides
+    {
+        $side = TriangleSideStub::random();
+
+        return new class($side, $side, $side) extends TriangleSides {
+            public function differentLengths(): int
+            {
+                return 12;
+            }
+        };
+    }
+
     public static function createFromFloat(
         ?float $firstSide = null,
         ?float $secondSide = null,
