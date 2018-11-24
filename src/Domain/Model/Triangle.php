@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tradeshift\Triangle\Domain\Model;
 
+use Tradeshift\Triangle\Domain\Exception\InvalidTriangleTypeForSides;
+
 abstract class Triangle
 {
     private $triangleSides;
@@ -19,29 +21,16 @@ abstract class Triangle
         $differentLengths = $this->triangleSides->differentLengths();
 
         if ($differentLengths !== $this->differentLengthsForType()) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "A <%s> triangle can not be created with <%d> different lengths",
-                    $this->type(),
-                    $differentLengths
-                )
+            throw new InvalidTriangleTypeForSides(
+                $this->type(),
+                $differentLengths
             );
         }
     }
 
-    public function firstSide(): TriangleSide
+    public function sides(): TriangleSides
     {
-        return $this->triangleSides->firstSide();
-    }
-
-    public function secondSide(): TriangleSide
-    {
-        return $this->triangleSides->secondSide();
-    }
-
-    public function thirdSide(): TriangleSide
-    {
-        return $this->triangleSides->thirdSide();
+        return $this->triangleSides;
     }
 
     abstract public function type(): TriangleType;

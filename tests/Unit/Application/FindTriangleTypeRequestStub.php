@@ -19,7 +19,7 @@ class FindTriangleTypeRequestStub
         );
     }
 
-    public static function equilater(): FindTriangleTypeRequest
+    public static function equilateral(): FindTriangleTypeRequest
     {
         $triangleSide = TriangleSideStub::random();
 

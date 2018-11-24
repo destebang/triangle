@@ -25,7 +25,7 @@ class TriangleFactoryTest extends TestCase
     /** @test */
     public function it_creates_a_equilateral_triangle_when_all_sides_are_equal()
     {
-        $sides = TriangleSidesStub::equilater();
+        $sides = TriangleSidesStub::equilateral();
 
         $equilateralTriangle = $this->factory->create($sides);
 

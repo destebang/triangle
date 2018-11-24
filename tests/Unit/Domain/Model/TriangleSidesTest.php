@@ -23,7 +23,7 @@ class TriangleSidesTest extends TestCase
     /** @test */
     public function it_returns_one_different_length_for_equilater(): void
     {
-        $equilater = TriangleSidesStub::equilater();
+        $equilater = TriangleSidesStub::equilateral();
         $this->assertSame(1, $equilater->differentLengths());
     }
 

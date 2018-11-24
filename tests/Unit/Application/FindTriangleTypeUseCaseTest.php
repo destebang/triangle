@@ -44,7 +44,7 @@ class FindTriangleTypeUseCaseTest extends TestCase
     {
         return [
             'equilater' => [
-                'request' => FindTriangleTypeRequestStub::equilater(),
+                'request' => FindTriangleTypeRequestStub::equilateral(),
                 'expected_response' => new FindTriangleTypeResponse('EQUILATERAL'),
             ],
             'isosceles' => [

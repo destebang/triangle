@@ -31,6 +31,11 @@ class TriangleSidesStub
         };
     }
 
+    public static function random(): TriangleSides
+    {
+        return self::create();
+    }
+
     public static function createFromFloat(
         ?float $firstSide = null,
         ?float $secondSide = null,
@@ -43,7 +48,7 @@ class TriangleSidesStub
         );
     }
 
-    public static function equilater(): TriangleSides
+    public static function equilateral(): TriangleSides
     {
         $triangleSide = TriangleSideStub::random();
 
@@ -56,10 +61,10 @@ class TriangleSidesStub
 
     public static function isosceles(): TriangleSides
     {
-        $triangleSide = TriangleSideStub::random(222.324);
+        $triangleSide = TriangleSideStub::random();
 
         return self::create(
-            TriangleSideStub::create(12.23),
+            TriangleSideStub::random(),
             $triangleSide,
             $triangleSide
         );
