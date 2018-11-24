@@ -46,20 +46,7 @@ class TriangleSides
 
     public function differentLengths(): int
     {
-        $triangleSideToLength = function (TriangleSide $triangleSide): float {
-            return $triangleSide->length();
-        };
-
-        $lengthsAsFloat = array_map(
-            $triangleSideToLength,
-            [
-                $this->firstSide,
-                $this->secondSide,
-                $this->thirdSide
-            ]
-        );
-
-        return count(array_unique($lengthsAsFloat));
+        return count(array_unique($this->toArray()));
     }
 
 }
