@@ -19,6 +19,19 @@ class TriangleSides
         $this->secondSide = $secondSide;
         $this->thirdSide = $thirdSide;
     }
+    public function differentLengths(): int
+    {
+        return count(array_unique($this->toArray()));
+    }
+
+    public function toArray(): array
+    {
+        return [
+            $this->firstSide->length(),
+            $this->secondSide->length(),
+            $this->thirdSide->length(),
+        ];
+    }
 
     public function firstSide(): TriangleSide
     {
@@ -33,19 +46,5 @@ class TriangleSides
     public function thirdSide(): TriangleSide
     {
         return $this->thirdSide;
-    }
-
-    public function toArray(): array
-    {
-        return [
-            $this->firstSide->length(),
-            $this->secondSide->length(),
-            $this->thirdSide->length(),
-        ];
-    }
-
-    public function differentLengths(): int
-    {
-        return count(array_unique($this->toArray()));
     }
 }
