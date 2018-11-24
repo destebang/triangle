@@ -3,6 +3,7 @@
 namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
 use PHPUnit\Framework\TestCase;
+use Tradeshift\Triangle\Domain\Exception\InvalidTriangleSideLength;
 use Tradeshift\Triangle\Domain\Model\TriangleSide;
 
 class TriangleSideTest extends TestCase
@@ -10,14 +11,14 @@ class TriangleSideTest extends TestCase
     /** @test **/
     public function throws_exception_for_zero_length(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidTriangleSideLength::class);
         new TriangleSide(0);
     }
 
     /** @test **/
     public function throws_exception_for_negative_length(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidTriangleSideLength::class);
         new TriangleSide(-1.23);
     }
 
