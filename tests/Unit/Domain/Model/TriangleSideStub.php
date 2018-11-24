@@ -1,6 +1,6 @@
 <?php
 
-namespace Tradeshift\Triangle\Tests\Domain\Model;
+namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
 use Tradeshift\Triangle\Domain\Model\TriangleSide;
 

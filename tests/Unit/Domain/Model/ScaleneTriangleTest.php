@@ -1,8 +1,7 @@
 <?php
 
-namespace Tradeshift\Triangle\Tests\Domain\Model;
+namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
-use Tradeshift\Triangle\Domain\Model\EquilateralTriangle;
 use PHPUnit\Framework\TestCase;
 use Tradeshift\Triangle\Domain\Model\ScaleneTriangle;
 
@@ -26,5 +25,13 @@ class ScaleneTriangleTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         new ScaleneTriangle(TriangleSidesStub::isosceles());
+    }
+
+    /**
+     * @test
+     */
+    public function is_characterized_by_three_different_lengths()
+    {
+        $this->assertSame(3, ScaleneTriangle::differentLengthsForType());
     }
 }

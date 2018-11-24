@@ -1,6 +1,6 @@
 <?php
 
-namespace Tradeshift\Triangle\Tests\Domain\Model;
+namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
 use PHPUnit\Framework\TestCase;
 use Tradeshift\Triangle\Domain\Model\EquilateralTriangle;
@@ -25,5 +25,13 @@ class EquilaterTriangleTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         new EquilateralTriangle(TriangleSidesStub::scalene());
+    }
+
+    /**
+     * @test
+     */
+    public function is_characterized_by_one_different_length()
+    {
+        $this->assertSame(1, EquilateralTriangle::differentLengthsForType());
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tradeshift\Triangle\Tests\Domain\Model;
+namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
 use Tradeshift\Triangle\Domain\Model\TriangleSide;
 use Tradeshift\Triangle\Domain\Model\TriangleSides;
@@ -16,6 +16,18 @@ class TriangleSidesStub
             $firstSide ?? TriangleSideStub::random(),
             $secondSide ?? TriangleSideStub::random(),
             $thirdSide ?? TriangleSideStub::random()
+        );
+    }
+
+    public static function createFromFloat(
+        ?float $firstSide = null,
+        ?float $secondSide = null,
+        ?float $thirdSide = null
+    ): TriangleSides {
+        return self::create(
+            $firstSide ? new TriangleSide($firstSide) : null,
+            $secondSide ? new TriangleSide($secondSide) : null,
+            $thirdSide ? new TriangleSide($thirdSide) : null
         );
     }
 

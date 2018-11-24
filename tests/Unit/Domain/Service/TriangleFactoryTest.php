@@ -1,6 +1,6 @@
 <?php
 
-namespace Tradeshift\Triangle\Tests\Domain\Service;
+namespace Tradeshift\Triangle\Tests\Unit\Domain\Service;
 
 use PHPUnit\Framework\TestCase;
 use Tradeshift\Triangle\Domain\Model\EquilateralTriangle;
@@ -8,7 +8,7 @@ use Tradeshift\Triangle\Domain\Model\IsoscelesTriangle;
 use Tradeshift\Triangle\Domain\Model\ScaleneTriangle;
 use Tradeshift\Triangle\Domain\Model\TriangleType;
 use Tradeshift\Triangle\Domain\Service\TriangleFactory;
-use Tradeshift\Triangle\Tests\Domain\Model\TriangleSidesStub;
+use Tradeshift\Triangle\Tests\Unit\Domain\Model\TriangleSidesStub;
 
 class TriangleFactoryTest extends TestCase
 {

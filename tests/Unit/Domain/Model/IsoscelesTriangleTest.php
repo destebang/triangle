@@ -1,10 +1,9 @@
 <?php
 
-namespace Tradeshift\Triangle\Tests\Domain\Model;
+namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
 use PHPUnit\Framework\TestCase;
 use Tradeshift\Triangle\Domain\Model\IsoscelesTriangle;
-use Tradeshift\Triangle\Domain\Model\TriangleSides;
 
 class IsoscelesTriangleTest extends TestCase
 {
@@ -26,5 +25,13 @@ class IsoscelesTriangleTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         new IsoscelesTriangle(TriangleSidesStub::scalene());
+    }
+
+    /**
+     * @test
+     */
+    public function is_characterized_by_two_different_lengths()
+    {
+        $this->assertSame(2, IsoscelesTriangle::differentLengthsForType());
     }
 }
