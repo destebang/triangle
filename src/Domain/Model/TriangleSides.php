@@ -48,5 +48,4 @@ class TriangleSides
     {
         return count(array_unique($this->toArray()));
     }
-
 }
