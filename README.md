@@ -1,4 +1,11 @@
-*This study path is released under the [**CC BY-SA 4.0**](https://creativecommons.org/licenses/by-sa/4.0/) license*
+# Triangle type kata
+
+## Run the app
+
+```
+composer install
+php app.php triangle:find-type 1.21 1.23 1.22
+```
 
 ## Run tests
 
