@@ -28,7 +28,7 @@ class FindTriangleTypeCommand extends Command
                 InputArgument::IS_ARRAY,
                 'Sequence of non-negative greater than zero floats'
             )
-            ->setDescription('Calculates the maximum pairwise product');
+            ->setDescription('Calculates the type of a triangle given the side lengths');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
