@@ -17,11 +17,7 @@ class TriangleSides
         TriangleSide $secondSide,
         TriangleSide $thirdSide
     ) {
-        if ($firstSide->length() + $secondSide->length() < $thirdSide->length()
-            || $firstSide->length() + $thirdSide->length() < $secondSide->length()
-            || $secondSide->length() + $thirdSide->length() < $firstSide->length()) {
-            throw new InvalidTriangleInequality();
-        }
+        $this->guardAgainstInvalidTriangleInequality($firstSide, $secondSide, $thirdSide);
 
         $this->firstSide = $firstSide;
         $this->secondSide = $secondSide;
@@ -55,5 +51,22 @@ class TriangleSides
     public function thirdSide(): TriangleSide
     {
         return $this->thirdSide;
+    }
+
+    /**
+     * @param TriangleSide $firstSide
+     * @param TriangleSide $secondSide
+     * @param TriangleSide $thirdSide
+     */
+    private function guardAgainstInvalidTriangleInequality(
+        TriangleSide $firstSide,
+        TriangleSide $secondSide,
+        TriangleSide $thirdSide
+    ): void {
+        if ($firstSide->length() + $secondSide->length() < $thirdSide->length()
+            || $firstSide->length() + $thirdSide->length() < $secondSide->length()
+            || $secondSide->length() + $thirdSide->length() < $firstSide->length()) {
+            throw new InvalidTriangleInequality();
+        }
     }
 }
