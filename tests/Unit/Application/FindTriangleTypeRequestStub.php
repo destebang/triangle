@@ -3,6 +3,7 @@
 namespace Tradeshift\Triangle\Tests\Unit\Application;
 
 use Tradeshift\Triangle\Application\FindTriangleTypeRequest;
+use Tradeshift\Triangle\Tests\Unit\Domain\Model\TriangleSidesStub;
 use Tradeshift\Triangle\Tests\Unit\Domain\Model\TriangleSideStub;
 
 class FindTriangleTypeRequestStub
@@ -21,32 +22,34 @@ class FindTriangleTypeRequestStub
 
     public static function equilateral(): FindTriangleTypeRequest
     {
-        $triangleSide = TriangleSideStub::random();
+        $triangleSides = TriangleSideStub::random();
 
         return self::create(
-            $triangleSide->length(),
-            $triangleSide->length(),
-            $triangleSide->length()
+            $triangleSides->length(),
+            $triangleSides->length(),
+            $triangleSides->length()
         );
     }
 
     public static function isosceles(): FindTriangleTypeRequest
     {
-        $triangleSide = TriangleSideStub::random();
+        $triangleSides = TriangleSidesStub::isosceles();
 
         return self::create(
-            TriangleSideStub::random()->length(),
-            $triangleSide->length(),
-            $triangleSide->length()
+            $triangleSides->firstSide()->length(),
+            $triangleSides->secondSide()->length(),
+            $triangleSides->thirdSide()->length()
         );
     }
 
     public static function scalene(): FindTriangleTypeRequest
     {
+        $triangleSides = TriangleSidesStub::scalene();
+
         return self::create(
-            TriangleSideStub::random()->length(),
-            TriangleSideStub::random()->length(),
-            TriangleSideStub::random()->length()
+            $triangleSides->firstSide()->length(),
+            $triangleSides->secondSide()->length(),
+            $triangleSides->thirdSide()->length()
         );
     }
 }

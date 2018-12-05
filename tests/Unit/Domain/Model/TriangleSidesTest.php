@@ -3,16 +3,31 @@
 namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 
 use PHPUnit\Framework\TestCase;
+use Tradeshift\Triangle\Domain\Exception\InvalidTriangleInequality;
 use Tradeshift\Triangle\Domain\Model\TriangleSides;
 
 class TriangleSidesTest extends TestCase
 {
     /** @test */
+    public function it_throws_exception_for_when_triangle_inequality_fails_for_isosceles(): void
+    {
+        $this->expectException(InvalidTriangleInequality::class);
+        TriangleSidesStub::invalidIsosceles();
+    }
+
+    /** @test */
+    public function it_throws_exception_for_when_triangle_inequality_fails_for_scalene(): void
+    {
+        $this->expectException(InvalidTriangleInequality::class);
+        TriangleSidesStub::invalidScalene();
+    }
+
+    /** @test */
     public function is_created_with_expected_sides(): void
     {
-        $firstSide = TriangleSideStub::random();
-        $secondSide = TriangleSideStub::random();
-        $thirdSide = TriangleSideStub::random();
+        $firstSide = TriangleSideStub::create(1);
+        $secondSide = TriangleSideStub::create(2);
+        $thirdSide = TriangleSideStub::create(3);
         $triangleSides = new TriangleSides($firstSide, $secondSide, $thirdSide);
 
         $this->assertSame($firstSide, $triangleSides->firstSide());

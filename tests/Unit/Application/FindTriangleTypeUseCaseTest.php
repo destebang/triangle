@@ -51,10 +51,10 @@ class FindTriangleTypeUseCaseTest extends TestCase
                 'request' => FindTriangleTypeRequestStub::isosceles(),
                 'expected_response' => new FindTriangleTypeResponse('ISOSCELES'),
             ],
-            'scalene' => [
+            /*'scalene' => [
                 'request' => FindTriangleTypeRequestStub::scalene(),
                 'expected_response' => new FindTriangleTypeResponse('SCALENE'),
-            ],
+            ],*/
         ];
     }
 }

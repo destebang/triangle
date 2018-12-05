@@ -5,7 +5,7 @@ namespace Tradeshift\Triangle\Tests\Unit\Domain\Model;
 use Tradeshift\Triangle\Domain\Model\TriangleSide;
 use Tradeshift\Triangle\Domain\Model\TriangleSides;
 
-class TriangleSidesStub
+final class TriangleSidesStub
 {
     public static function create(
         ?TriangleSide $firstSide = null,
@@ -51,7 +51,6 @@ class TriangleSidesStub
     public static function equilateral(): TriangleSides
     {
         $triangleSide = TriangleSideStub::random();
-
         return self::create(
             $triangleSide,
             $triangleSide,
@@ -61,21 +60,50 @@ class TriangleSidesStub
 
     public static function isosceles(): TriangleSides
     {
-        $triangleSide = TriangleSideStub::random();
+        $firstSide = TriangleSideStub::random();
+        $equalSides = TriangleSideStub::create($firstSide->length() + 5);
 
         return self::create(
-            TriangleSideStub::random(),
-            $triangleSide,
-            $triangleSide
+            $firstSide,
+            $equalSides,
+            $equalSides
+        );
+    }
+
+
+    public static function invalidIsosceles(): TriangleSides
+    {
+        $firstSide = TriangleSideStub::random();
+        $equalSide = TriangleSideStub::create($firstSide->length() / 4);
+
+        return self::create(
+            $firstSide,
+            $equalSide,
+            $equalSide
         );
     }
 
     public static function scalene(): TriangleSides
     {
+        $firstSide = TriangleSideStub::random();
+
         return self::create(
-            TriangleSideStub::random(),
-            TriangleSideStub::random(),
-            TriangleSideStub::random()
+            $firstSide,
+            TriangleSideStub::create($firstSide->length() + 1.10),
+            TriangleSideStub::create($firstSide->length() + 1.05)
+        );
+    }
+
+    public static function invalidScalene(): TriangleSides
+    {
+        $firstSide = TriangleSideStub::random();
+        $secondSide = TriangleSideStub::create($firstSide->length() * 3);
+        $thirdSide = TriangleSideStub::create($secondSide->length() * 2);
+
+        return self::create(
+            $firstSide,
+            $secondSide,
+            $thirdSide
         );
     }
 }

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tradeshift\Triangle\Domain\Model;
 
+use Tradeshift\Triangle\Domain\Exception\InvalidTriangleInequality;
+
 class TriangleSides
 {
     private $firstSide;
@@ -15,10 +17,17 @@ class TriangleSides
         TriangleSide $secondSide,
         TriangleSide $thirdSide
     ) {
+        if ($firstSide->length() + $secondSide->length() < $thirdSide->length()
+            || $firstSide->length() + $thirdSide->length() < $secondSide->length()
+            || $secondSide->length() + $thirdSide->length() < $firstSide->length()) {
+            throw new InvalidTriangleInequality();
+        }
+
         $this->firstSide = $firstSide;
         $this->secondSide = $secondSide;
         $this->thirdSide = $thirdSide;
     }
+
     public function differentLengths(): int
     {
         return count(array_unique($this->toArray()));

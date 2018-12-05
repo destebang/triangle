@@ -18,8 +18,6 @@ class TriangleSideStub
 
     private static function randomFloat(): float
     {
-        return (float) (mt_rand() / mt_getrandmax());
+        return (float) mt_rand();
     }
-
-
 }

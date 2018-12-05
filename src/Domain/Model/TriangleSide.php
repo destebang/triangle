@@ -31,6 +31,11 @@ final class TriangleSide
         return $this->length === $anotherTriangleSide->length();
     }
 
+    public function plus(TriangleSide $anotherTriangleSide): float
+    {
+        return $this->length + $anotherTriangleSide->length;
+    }
+
     public function length(): float
     {
         return $this->length;
